@@ -1,6 +1,6 @@
 import { ChangeEvent, Dispatch, ReactNode, SetStateAction } from "react";
 
-import { Error } from "../erros/TextErroField";
+import { TextErrorField } from "@/components/erros/TextErroField";
 import { ErrorType } from "@/types/customTypes";
 
 type Props = {
@@ -29,7 +29,7 @@ export function Checkbox({ children, setChecked, checked, error }: Props) {
         />
         {children}
       </label>
-      {error && <Error message={error.message} />}
+      {error && <TextErrorField message={error.message} />}
     </div>
   );
 }

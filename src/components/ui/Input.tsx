@@ -1,7 +1,7 @@
 import { ChangeEventHandler, FocusEventHandler, ReactNode } from "react";
 
 import { ErrorType } from "@/types/customTypes";
-import { TextErrorField } from "../erros/TextErroField";
+import { TextErrorField } from "@/components/erros/TextErroField";
 
 type Props = {
   label: string;
