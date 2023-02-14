@@ -44,17 +44,20 @@ export default function SignUp() {
       return null;
 
     try {
-      const response = await fetch("/api/account/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: username.value,
-          email: email.value,
-          password: password.value,
-        }),
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/account/signup`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: username.value,
+            email: email.value,
+            password: password.value,
+          }),
+        }
+      );
       const data = await response.json();
       setFlashMessage(data);
     } catch (err) {
