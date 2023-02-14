@@ -9,8 +9,8 @@ export default async function handler(
   if (req.method === "POST") {
     await createUser(req, res);
   } else {
-    throw new Error(
-      `The HTTP ${req.method} method is not supported at this route.`
-    );
+    return res
+      .status(500)
+      .end(`The HTTP ${req.method} method is not supported at this route.`);
   }
 }
