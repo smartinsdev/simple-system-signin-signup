@@ -45,7 +45,7 @@ export default function SignUp() {
 
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/account/signup`,
+        "https://simple-system-login.vercel.app/api/account/signup",
         {
           method: "POST",
           headers: {
