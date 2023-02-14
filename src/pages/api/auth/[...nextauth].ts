@@ -3,9 +3,6 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import CredentialsProvider from "next-auth/providers/credentials";
 import prisma from "@/lib/prismadb";
 
-const BASE_URL =
-  process.env.VERCEL === "1" ? process.env.VERCEL_URL : "http://localhost:3000";
-
 export const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",
@@ -19,16 +16,19 @@ export const authOptions: NextAuthOptions = {
           email: string;
           password: string;
         };
-        const response = await fetch(`${BASE_URL}/api/account/signin`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email,
-            password,
-          }),
-        });
+        const response = await fetch(
+          `${process.env.NEXTAUTH_URL}/api/account/signin`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email,
+              password,
+            }),
+          }
+        );
 
         if (response.status === 401) {
           throw new Error("Unauthorized");

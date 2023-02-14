@@ -15,9 +15,6 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { Alert } from "@/components/ui/Alert";
 
-const BASE_URL =
-  process.env.VERCEL === "1" ? process.env.VERCEL_URL : "http://localhost:3000";
-
 export default function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
   const [checked, setChecked] = useState(false);
@@ -47,17 +44,20 @@ export default function SignUp() {
       return null;
 
     try {
-      const response = await fetch(`${BASE_URL}/api/account/signup`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: username.value,
-          email: email.value,
-          password: password.value,
-        }),
-      });
+      const response = await fetch(
+        `${process.env.NEXTAUTH_URL}/api/account/signup`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: username.value,
+            email: email.value,
+            password: password.value,
+          }),
+        }
+      );
       const data = await response.json();
       setFlashMessage(data);
     } catch (err) {
