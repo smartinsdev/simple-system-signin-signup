@@ -45,7 +45,7 @@ export default function SignUp() {
 
     try {
       const response = await fetch(
-        `${process.env.NEXTAUTH_URL}/api/account/signup`,
+        `https://${process.env.VERCEL_URL}/api/account/signup`,
         {
           method: "POST",
           headers: {

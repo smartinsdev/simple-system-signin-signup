@@ -17,7 +17,7 @@ export const authOptions: NextAuthOptions = {
           password: string;
         };
         const response = await fetch(
-          `${process.env.NEXTAUTH_URL}/api/account/signin`,
+          `https://${process.env.VERCEL_URL}/api/account/signin`,
           {
             method: "POST",
             headers: {
