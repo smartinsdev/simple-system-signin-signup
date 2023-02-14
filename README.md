@@ -1,38 +1,102 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Signin and SignUp with Next-Auth and more
 
-## Getting Started
+This is a small project with a login system, with Next-Auth technology. At first the project started as just a login layout and was gaining proportions. The project consists of several strategies like custom Hook to validate text fields, organized folder structure and much more.
 
-First, run the development server:
+## Table of contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+- [Signin and SignUp with Next-Auth and more](#signin-and-signup-with-next-auth-and-more)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [The challenge](#the-challenge)
+    - [System Requirements](#system-requirements)
+    - [How to use](#how-to-use)
+  - [My process](#my-process)
+    - [Built with](#built-with)
+    - [What I learned](#what-i-learned)
+  - [Author](#author)
+
+## Overview
+
+### The challenge
+
+Users should be able to:
+
+- See the optimal layout for the site, depending on the screen size of your device
+- See all interactive elements on the page
+- You can register
+- If you are registered, you can then login
+- See all the possible validation errors.
+
+### System Requirements
+
+- [Node.js 12.22.0 or later](https://nodejs.org)
+- MacOS, Windows (including WSL), and Linux are supported
+
+### How to use
+
+Get the code by either cloning this repository using git
+
+```
+git clone https://github.com/smartinsdev/simple-system-signin-signup
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+... or [downloading source code](https://github.com/smartinsdev/simple-system-signin-signup/archive/refs/heads/main.zip) code as a zip archive.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Once downloaded, open the terminal in the project directory, and install dependencies with:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```
+npm install
+or
+yarn
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Configure your local environment:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```
+cp .env.local.example .env.local
+```
 
-## Learn More
+Then start the example app with:
 
-To learn more about Next.js, take a look at the following resources:
+```
+npm run dev
+or
+yarn dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The app should now be up and running at http://localhost:3000 🚀
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## My process
 
-## Deploy on Vercel
+The project was started in order to learn even more about session strategies, tokens, text field validations, email and password. I found some difficulties in the beginning because I'm still getting to know the Next-Auth tool proposal.
+The field validations I found the best way to do is to make a custom hook and this saves me time in the development.
+All the functions and variables are typed with TypeScript.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+I implemented redirect routes if the user doesn't have a session yet and also when the user does his registration he will be redirected to the login page.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The whole project was styled with Tailwindcss
+
+### Built with
+
+- [Next.js](https://nextjs.org/) - The React Framework for the Web
+- [Next-Auth](https://next-auth.js.org/) - Authentication for Next.js
+- [Prisma](https://www.prisma.io/) - for ORM database
+- [TypeScript](https://www.typescriptlang.org/) - For types
+- [Tailwindcss](https://tailwindcss.com/) - For styles
+- [Heroicons](https://heroicons.com/) - For Icons
+- [Bcryptjs](https://www.npmjs.com/package/bcryptjs) - For Password encryption
+
+### What I learned
+
+- Developing a custom hook
+- Text, email and password validations
+- Session Strategies
+- Tokens and cookies strategies
+- Route Redirections
+- Rest API
+- Extending the types of Next-auth to customize
+
+## Author
+
+- Linkedin - [@martinssjunior](https://www.linkedin.com/in/martinssjunior/)
+- Twitter - [@smartinsdev](https://www.twitter.com/smartinsdev)
