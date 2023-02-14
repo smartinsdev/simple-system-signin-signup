@@ -10,7 +10,7 @@
     "prisma:migrate": "npx prisma migrate dev --schema=./src/prisma/schema.prisma"
   },
   "prisma": {
-    "schema" : "./prisma/schema.prisma"
+    "schema" : "./src/prisma/schema.prisma"
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.5",
